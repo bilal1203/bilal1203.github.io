@@ -1,5 +1,4 @@
 // preloader script............
-var audio = document.getElementById("audioPlayer");
 var loader = document.getElementById("preloader");
 window.addEventListener("load", function () {
   loader.style.display = "none";
@@ -69,7 +68,7 @@ navLi.forEach( li => {
   }
 })
 })
-console.log('%c Designed and Developed by Vinod Jangid ', 'background-image: linear-gradient(90deg,#8000ff,#6bc5f8); color: white;font-weight:900;font-size:1rem; padding:20px;');
+console.log('%c Designed and Developed by Ahmad Bilal ', 'background-image: linear-gradient(90deg,#8000ff,#6bc5f8); color: white;font-weight:900;font-size:1rem; padding:20px;');
 
 
 
@@ -96,7 +95,7 @@ function scrolltoTopfunction(){
 // document.addEventListener("contextmenu", function (e){
 //   e.preventDefault();
 // }, false);
-// https://github.com/vinodjangid07
+
 document.addEventListener("contextmenu", function(e){
   if (e.target.nodeName === "IMG") {
       e.preventDefault();
@@ -109,9 +108,9 @@ document.addEventListener("contextmenu", function(e){
 let Pupils = document.getElementsByClassName('footer-pupil');
 let pupilsArr = Array.from(Pupils);
 
-let pupilStartPoint = -10;
-let pupilRangeX = 20;
-let pupilRangeY = 15;
+let pupilStartPoint = -5;
+let pupilRangeX = 10;
+let pupilRangeY = 7.5;
 
 // mouse X 
 let mouseXStartPoint = 0;
