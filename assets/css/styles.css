@@ -1146,10 +1146,58 @@ body.light-mode .tech-stack-logo.light-mode-image {
     margin-bottom: 70px;
 }
 
+.project-category-hover-effect{
+    width: 420px; /* Match the width of project-category-box */
+    height: 300px; /* Match the height of project-category-box */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition-duration: .5s;
+}
+.project-category-hover-effect img{
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+.project-category-hover-effect::before{
+    content: "";
+    background-color: transparent;
+    height: 100%;
+    width: 100%;
+    border-radius: 22px;
+    position: absolute;
+    z-index: -2;
+    box-shadow: 2px 2px 0px inset #8000ff,
+                -2px -2px 0px inset transparent;
+                transition-duration: .5s;
+
+}
+.project-category-hover-effect::after{
+    content: "";
+    background-color: transparent;
+    height: 100%;
+    width: 100%;
+    border-radius: 22px;
+    position: absolute;
+    z-index: -2;
+    box-shadow: 2px 2px 0px inset transparent,
+                -2px -2px 0px inset #8000ff;
+                transition-duration: .5s;
+
+}
+/* hover effect on project-category-hover-effect */
+.project-category-hover-effect:hover::after{
+    transform: translate(20px,20px);
+}
+.project-category-hover-effect:hover::before {
+    transform: translate(-20px, -20px);
+}
+
 .project-category-box {
     background-image: linear-gradient(to bottom right, var(--tech-stack-box-first-color),var(--tech-stack-box-second-color));
-    width: 420px;
-    height: 300px;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1195,51 +1243,6 @@ body.light-mode .tech-stack-logo.light-mode-image {
     -webkit-text-fill-color: transparent;
     font-size: 2.5rem;
     font-weight: 725;
-}
- 
-.project-category-hover-effect{
-    width: 40%;
-    display: flex;
-    align-items: flex-start;
-    justify-content:center;
-    position: relative;
-    transition-duration: .5s;
-}
-.project-category-hover-effect img{
-    width: 420px;
-}
-.project-category-hover-effect::before{
-    content: "";
-    background-color: transparent;
-    height: 300px;
-    width: 420px;
-    border-radius: 22px;
-    position: absolute;
-    z-index: -2;
-    box-shadow: 2px 2px 0px inset #8000ff,
-                -2px -2px 0px inset transparent;
-                transition-duration: .5s;
-
-}
-.project-category-hover-effect::after{
-    content: "";
-    background-color: transparent;
-    height: 300px;
-    width: 420px;
-    border-radius: 22px;
-    position: absolute;
-    z-index: -2;
-    box-shadow: 2px 2px 0px inset transparent,
-                -2px -2px 0px inset #8000ff;
-                transition-duration: .5s;
-
-}
-/* hover effect on project-category-hover-effect */
-.project-category-hover-effect:hover::after{
-    transform: translate(20px,20px);
-}
-.project-category-hover-effect:hover::before {
-    transform: translate(-20px, -20px);
 }
 
 .project-boxes-div{
@@ -1689,7 +1692,9 @@ footer{
    
   }
   @media screen and (max-width:1300px) {
-   
+    .projects-section-div{
+        width: 80%;
+    }
   }
 
   @media screen and (max-width:1200px) {
@@ -1712,9 +1717,6 @@ footer{
         transition-duration: 1s;
     }
     .skills-section{
-        width: 80%;
-    }
-    .projects-section-div{
         width: 80%;
     }
     
@@ -1907,9 +1909,6 @@ transition-duration: 1s;
     border-radius: 50%;
 
 }
-.projects-section-div{
-    width: 80%;
-}
 .project-box{
 
     flex-direction: column;
@@ -1957,10 +1956,6 @@ transition-duration: 1s;
     .setting-container {
         margin-left: 0px;
     }
-    .dp::before{
-        display: none;
-    }
-    .dp::after{display: none;}
 
     .logo{
         width: 18%;
@@ -1973,9 +1968,6 @@ transition-duration: 1s;
         width: 100%;
      } 
 
-.projects-section-div{
-    width: 80%;
-}
 .project-boxes-div{
     padding: 40px 0;
 }
@@ -2040,14 +2032,13 @@ transition-duration: 1s;
         height: calc(76vw/2);
 
     }
-    
 
   }
   @media screen and (max-width:430px) {
     html {
         font-size: 45%;
     }
-    .skills-section,.about-section,.projects-section-div{
+    .skills-section,.about-section {
         width: 80%;
     }
     .info-div{
@@ -2106,13 +2097,3 @@ transition-duration: 1s;
         gap: 20px;
     }
   }
-
-  /* responsive code above */
-/*   
-
-  @media screen and (min-height: 900px) and (max-width: 600px) {
-
-    .text-content{
-        justify-content: flex-start;
-    }
-  } */
