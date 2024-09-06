@@ -2056,6 +2056,13 @@ transition-duration: 1s;
     .dp img{
         width: 200px;
     }
+
+    .dp::before, .dp::after{
+        height: 200px;
+        width: 200px;
+
+    }
+
     .two-words{
         height: 50px;
     }
