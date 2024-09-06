@@ -1713,10 +1713,6 @@ footer{
     .cursor-outer{
         display: none;
     }
-
-    .navbar {
-        display: none;
-    }
     .navbar-tabs-ul{
     display: none;
     }
