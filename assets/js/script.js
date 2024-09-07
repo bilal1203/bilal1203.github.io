@@ -22,6 +22,16 @@ function visualmode() {
 
 
 }
+
+function scrollToActiveMenuItem() {
+  const activeMenuItem = document.querySelector('.mobile-navbar-tabs-li.activeThismobiletab');
+  if (activeMenuItem) {
+      setTimeout(() => {
+          activeMenuItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 300); // Delay to allow menu opening animation to complete
+  }
+}
+
 let emptyArea = document.getElementById("emptyarea");
 let mobileTogglemenu = document.getElementById("mobiletogglemenu");
 // toggle menu by clicking on hamburger
@@ -31,6 +41,9 @@ function hamburgerMenu() {
   document.getElementById("burger-bar1").classList.toggle("hamburger-animation1");
   document.getElementById("burger-bar2").classList.toggle("hamburger-animation2");
   document.getElementById("burger-bar3").classList.toggle("hamburger-animation3");
+  if (mobileMenu.classList.contains('show-toggle-menu')) {
+    scrollToActiveMenuItem();
+}
 }
 // close mobile toggle menu by clicking on LI
 function hidemenubyli() {
