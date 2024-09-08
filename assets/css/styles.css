@@ -51,6 +51,9 @@ html {
     --tech-stack-box-first-color: #1a1a29;
     --tech-stack-box-second-color: rgba(27, 27, 40, 0);
     --tech-stack-box-border-color: #292929;
+    --education-degree-box-color1: #050505;
+    --education-degree-box-color2: #0a0a0b;
+    --education-degree-box-color3: #0f0f11;
 }
 
 ::-webkit-scrollbar {
@@ -124,6 +127,9 @@ body {
     --tech-stack-box-first-color: #e7e2db;
     --tech-stack-box-second-color: #ece7e100;
     --tech-stack-box-border-color: #dad5cf;
+    --education-degree-box-color1: #aeaea3;
+    --education-degree-box-color2: #b7b6af;
+    --education-degree-box-color3: #cecdc5;
 }
 
 .setting-container {
@@ -1563,30 +1569,85 @@ body.light-mode .tech-stack-logo.light-mode-image {
     margin-top: 50px;
 }
 
-.education-degree-box{
-    background-image: linear-gradient(to bottom right, var(--tech-stack-box-first-color), var(--tech-stack-box-second-color));
+.education-degree-box-hover-effect {
     width: 100%;
-    height: 400px;
+    /* Match the width of project-category-box */
+    height: 410px;
+    /* Match the height of project-category-box */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition-duration: .5s;
+    margin-top: 20px;
+}
+
+.education-degree-box-hover-effect::before {
+    content: "";
+    background-color: transparent;
+    height: 100%;
+    width: 100%;
+    border-radius: 30px;
+    position: absolute;
+    z-index: -2;
+    box-shadow: 2px 2px 0px inset #8000ff,
+        -2px -2px 0px inset transparent;
+    transition-duration: .5s;
+
+}
+
+.education-degree-box-hover-effect::after {
+    content: "";
+    background-color: transparent;
+    height: 100%;
+    width: 100%;
+    border-radius: 30px;
+    position: absolute;
+    z-index: -2;
+    box-shadow: 2px 2px 0px inset transparent,
+        -2px -2px 0px inset #8000ff;
+    transition-duration: .5s;
+
+}
+
+/* hover effect on project-category-hover-effect */
+.education-degree-box-hover-effect:hover::after {
+    transform: translate(20px, 20px);
+}
+
+.education-degree-box-hover-effect:hover::before {
+    transform: translate(-20px, -20px);
+}
+
+.education-certifications-section{
+    width: 100%;
+    margin-top: 25px;
+}
+
+.education-degree-box{
+    /* background-image: linear-gradient(to top left, var(--tech-stack-box-first-color), var(--education-degree-box-color2)); */
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
     transition-duration: .3s;
     position: relative;
-    border-radius: 30px;
+    border-radius: 29px;
     border: 2px solid var(--tech-stack-box-border-color);
     overflow: hidden;
-    margin-top: 20px;
 }
 
 .university-logo-div{
+    background-image: linear-gradient(to left, var(--tech-stack-box-first-color), var(--education-degree-box-color1));
     width: 25%;
     height: 100%;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px 20px;
+    padding: 20px 10px 20px 30px;
 }
 
 .university-logo-div img {
@@ -1601,17 +1662,19 @@ body.light-mode .tech-stack-logo.light-mode-image {
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    padding: 0 40px;
+    /* padding: 0 40px; */
 }
 
 .degree-content-header{
+    background-image: linear-gradient(to right, var(--tech-stack-box-first-color), var(--education-degree-box-color2));
     width: 100%;
     height: 40%;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    padding-top: 15px;
+    /* padding-top: 15px; */
+    padding: 10px 40px 5px 40px;
 }
 
 .degree-content-header-left{
@@ -1631,7 +1694,6 @@ body.light-mode .tech-stack-logo.light-mode-image {
     line-height: 1.2;
     white-space: normal;
     overflow: visible;
-    text-overflow: clip;
     max-width: 100%;
     margin: 1.5rem 0 0 0;
 }
@@ -1668,17 +1730,23 @@ body.light-mode .tech-stack-logo.light-mode-image {
 }
 
 .degree-content-body{
+    background-image: linear-gradient(to right, var(--tech-stack-box-first-color), var(--education-degree-box-color3));
     width: 100%;
     height: 60%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 30px 0;
+    padding: 25px 40px 30px 30px;
+    overflow: hidden;
 }
 
 .degree-highlights-left,
 .degree-highlights-right {
   width: 48%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 }
 
 .degree-highlights-left h3,
@@ -1687,13 +1755,19 @@ body.light-mode .tech-stack-logo.light-mode-image {
   font-size: 2.2rem;
   font-weight: 700;
   margin-bottom: 12px;
+  text-decoration: underline;
 }
 
 .degree-highlights-left ul,
 .degree-highlights-right ul {
-  list-style-type: none;
-  padding-left: 0;
-  margin-bottom: 15px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-left: 20px;
+    list-style-type: none;
+    /* padding-left: 0; */
+    /* margin-bottom: 15px; */
 }
 
 .degree-highlights-left li,
@@ -1705,9 +1779,9 @@ body.light-mode .tech-stack-logo.light-mode-image {
   align-items: center;
 }
 
-.education-certifications-section{
-    width: 100%;
-    margin-top: 25px;
+.degree-highlights-left li:last-child,
+.degree-highlights-right li:last-child {
+    margin-bottom: 0;
 }
 
 /* have to add hover effect div above .education-certificate-box */
@@ -1717,8 +1791,8 @@ body.light-mode .tech-stack-logo.light-mode-image {
 
 .info-icon {
     position: absolute;
-    top: 15px;
-    right: 15px;
+    top: 20px;
+    right: 20px;
     width: 24px;
     height: 24px;
     background-color: var(--color-white);
@@ -1771,6 +1845,75 @@ body.light-mode .tech-stack-logo.light-mode-image {
 .info-icon:hover .info-content {
     display: block;
 }
+
+.uni-link-btn {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    overflow: hidden;
+    transition-duration: .3s;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+    background: linear-gradient(82.3deg, rgba(150, 93, 233, 1) 10.8%, rgba(99, 88, 238, 1) 94.3%);
+  }
+  
+  .uni-link-btn .sign {
+    width: 100%;
+    transition-duration: .3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .uni-link-btn .sign svg {
+    width: 17px;
+    height: 17px;
+  }
+  
+  .uni-link-btn .sign svg * {
+    stroke: white;
+  }
+  
+  .uni-link-btn .text {
+    position: absolute;
+    right: 0%;
+    width: 0%;
+    opacity: 0;
+    color: white;
+    font-size: 1em;
+    font-weight: 600;
+    transition-duration: .3s;
+  }
+  
+  .uni-link-btn:hover {
+    width: 140px;
+    border-radius: 40px;
+    transition-duration: .3s;
+  }
+  
+  .uni-link-btn:hover .sign {
+    width: 30%;
+    transition-duration: .3s;
+    padding-left: 20px;
+  }
+  
+  .uni-link-btn:hover .text {
+    opacity: 1;
+    width: 70%;
+    transition-duration: .3s;
+    padding-right: 10px;
+  }
+  
+  .uni-link-btn:active {
+    transform: translate(2px, 2px);
+  }
 
 /* education section ends */
 
@@ -2097,6 +2240,10 @@ footer {
     color: black;
 }
 
+.mobile-education-degree-box-hover-effect {
+    display: none;
+}
+
 /* responsive code below*/
 @media screen and (max-width:1920px) {
     html {
@@ -2109,6 +2256,41 @@ footer {
         font-size: 60%;
     }
 
+    .university-name {
+        font-size: 2.0rem;
+    }
+    
+    .university-place {
+        font-size: 1.2rem;
+    }
+    
+    .degree-program {
+        font-size: 1.8rem;
+    }
+
+    .degree-duration{
+        font-size: 1.45rem;
+    }
+
+    .degree-highlights-left h3,
+    .degree-highlights-right h3 {
+    font-size: 1.8rem;
+    }
+
+    .degree-highlights-left li,
+    .degree-highlights-right li {
+    font-size: 1.45rem;
+    }
+
+    .degree-content-body{
+        background-image: linear-gradient(to right, var(--tech-stack-box-first-color), var(--education-degree-box-color3));
+        width: 100%;
+        height: 60%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 30px 40px 30px 30px;
+    }
 }
 
 @media screen and (max-width:1300px) {
@@ -2375,6 +2557,200 @@ footer {
         height: 50%;
         padding-left: 80px;
     }
+
+    .education-degree-box-hover-effect {
+        display: none;
+    }
+
+    .mobile-education-degree-box-hover-effect {
+        width: 100%;
+        /* Match the width of project-category-box */
+        height: 100%;
+        /* Match the height of project-category-box */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        transition-duration: .5s;
+        margin-top: 20px;
+    }
+
+    .mobile-education-degree-box-hover-effect::before {
+        content: "";
+        background-color: transparent;
+        height: 100%;
+        width: 100%;
+        border-radius: 30px;
+        position: absolute;
+        z-index: -2;
+        box-shadow: 2px 2px 0px inset #8000ff,
+            -2px -2px 0px inset transparent;
+        transition-duration: .5s;
+    
+    }
+    
+    .mobile-education-degree-box-hover-effect::after {
+        content: "";
+        background-color: transparent;
+        height: 100%;
+        width: 100%;
+        border-radius: 30px;
+        position: absolute;
+        z-index: -2;
+        box-shadow: 2px 2px 0px inset transparent,
+            -2px -2px 0px inset #8000ff;
+        transition-duration: .5s;
+    
+    }
+    
+    /* hover effect on project-category-hover-effect */
+    .mobile-education-degree-box-hover-effect:hover::after {
+        transform: translate(20px, 20px);
+    }
+    
+    .mobile-education-degree-box-hover-effect:hover::before {
+        transform: translate(-20px, -20px);
+    }
+
+    .mobile-education-degree-box {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        border-radius: 29px;
+        border: 2px solid var(--tech-stack-box-border-color);
+        overflow: hidden;
+        position: relative;
+      }
+      
+      .mobile-university-logo-div {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        width: 275px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .mobile-university-logo-div img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+      }
+      
+      .mobile-degree-content-div {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+      
+      .mobile-degree-content-header {
+        background-image: linear-gradient(to bottom, var(--education-degree-box-color2), var(--tech-stack-box-first-color));
+        width: 100%;
+        padding: 80px 20px 0px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      
+      .mobile-university-name {
+        color: var(--color-white);
+        font-size: 2rem;
+        font-weight: 650;
+        line-height: 1.2;
+        margin: 0 0 5px 0;
+      }
+      
+      .mobile-university-place {
+        color: var(--color-white);
+        font-size: 1.3rem;
+        font-weight: 550;
+        font-style: italic;
+        margin: 0 0 10px 0;
+      }
+      
+      .mobile-degree-program {
+        color: var(--color-white);
+        font-size: 1.8rem;  
+        font-weight: 600;
+        line-height: 1.3;
+        margin: 0 0 5px 0;
+      }
+      
+      .mobile-degree-duration {
+        color: var(--color-white);
+        font-size: 1.5rem;
+        font-weight: 550;
+        font-style: italic;
+        margin: 0;
+      }
+      
+      .mobile-degree-content-body {
+        background-image: linear-gradient(to bottom, var(--tech-stack-box-first-color), var(--education-degree-box-color3));
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 20px;
+      }
+      
+      .mobile-degree-highlights-left,
+      .mobile-degree-highlights-right {
+        width: 48%;
+      }
+      
+      .mobile-degree-highlights-left h3,
+      .mobile-degree-highlights-right h3 {
+        color: var(--color-white);
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+        text-decoration: underline;
+        text-align: center;
+      }
+      
+      .mobile-degree-highlights-left ul,
+      .mobile-degree-highlights-right ul {
+        padding-left: 15px;
+        list-style-type: none;
+      }
+      
+      .mobile-degree-highlights-left li,
+      .mobile-degree-highlights-right li {
+        color: var(--color-white);
+        font-size: 1.4rem;
+        margin-bottom: 8px;
+      }
+      
+      .mobile-uni-link-btn {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        overflow: hidden;
+        transition-duration: .3s;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+        background: linear-gradient(82.3deg, rgba(150, 93, 233, 1) 10.8%, rgba(99, 88, 238, 1) 94.3%);
+        opacity: 0.7;
+      }
+      
+      .mobile-uni-link-btn .sign svg {
+        width: 15px;
+        height: 15px;
+        stroke: white;
+      }
+      
+      .mobile-uni-link-btn .text {
+        display: none;
+      }
 }
 
 @media screen and (max-width:768px) {
@@ -2516,6 +2892,10 @@ footer {
     .tech-stack-heading {
         font-size: 3.5rem;
     }
+
+    .mobile-university-logo-div {
+        width: 70%;
+      }
 
 }
 
