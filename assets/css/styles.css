@@ -2913,6 +2913,10 @@ footer {
         margin-top: 100px;
     }
 
+    .about-section-container {
+        padding-top:300px;
+    }
+
     .text-content {
         justify-content: flex-start;
     }
