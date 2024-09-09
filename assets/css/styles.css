@@ -2637,6 +2637,63 @@ footer {
         max-height: 100%;
         object-fit: contain;
       }
+
+      .mobile-info-icon {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 24px;
+        height: 24px;
+        background-color: var(--color-white);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-weight: bold;
+        color: var(--tech-stack-box-first-color);
+    }
+
+      .mobile-info-content {
+        display: none;
+        position: absolute;
+        top: 45px;
+        right: 15px;
+        background-color: var(--color-white);
+        padding: 15px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        width: 200px;
+        z-index: 10;
+        color: var(--tech-stack-box-first-color);
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+    
+    .mobile-info-content h4 {
+        margin: 0 0 10px 0;
+        color: #ff0000;
+        font-size: 1.2rem;
+    }
+    
+    .mobile-info-content ul {
+        margin: 0 0 10px 0;
+        padding-left: 20px;
+    }
+    
+    .mobile-info-content p {
+        margin: 0;
+    }
+    
+    .mobile-info-content strong {
+        font-weight: bold;
+        color: #ff0000;
+        font-size: 1.1rem;
+    }
+    
+    .mobile-info-icon:hover .mobile-info-content {
+        display: block;
+    }
       
       .mobile-degree-content-div {
         width: 100%;
@@ -2896,6 +2953,11 @@ footer {
     .mobile-university-logo-div {
         width: 70%;
       }
+
+      .education-section-heading{
+        font-size: 3.5rem;
+    
+    }
 
 }
 
