@@ -2910,6 +2910,7 @@ footer {
 
     .landing-page-container {
         height: 85vh;
+        margin-top: 100px;
     }
 
     .text-content {
