@@ -3,29 +3,24 @@
 // Ahmad Bilal Portfolio
 // ========================================
 
-// ── SPLASH SCREEN ────────────────────────
-window.addEventListener("load", function () {
-    const splash = document.getElementById("splash-screen");
-    if (splash) {
-        setTimeout(function () {
-            splash.classList.add("splash-fade-out");
-            setTimeout(function () {
-                splash.style.display = "none";
-            }, 600);
-        }, 2200);
-    }
-});
-
-// ── CUSTOM CURSOR ────────────────────────
+// ── CUSTOM CURSOR (Web Animations API with lag/trail) ────────────────────────
 const cursorInner = document.getElementById("cursor-inner");
 const cursorOuter = document.getElementById("cursor-outer");
 
 if (cursorInner && cursorOuter) {
     document.addEventListener("mousemove", function (e) {
-        cursorInner.style.left = e.clientX + "px";
-        cursorInner.style.top = e.clientY + "px";
-        cursorOuter.style.left = e.clientX + "px";
-        cursorOuter.style.top = e.clientY + "px";
+        const posX = e.clientX;
+        const posY = e.clientY;
+
+        // Inner dot: instant
+        cursorInner.style.left = posX + "px";
+        cursorInner.style.top  = posY + "px";
+
+        // Outer ring: lagging trail via Web Animations API
+        cursorOuter.animate(
+            { left: posX + "px", top: posY + "px" },
+            { duration: 500, fill: "forwards" }
+        );
     });
 
     document.querySelectorAll("a, button, [onclick], .featured-project-card").forEach(function (el) {
@@ -151,6 +146,65 @@ document.addEventListener("contextmenu", function (e) {
         e.preventDefault();
     }
 }, false);
+
+// ── STICKY FLOATING AVATAR (docks into footer) ───────────────────────────────
+(function () {
+    var footerAvatarContainer = document.querySelector('.footer-avatar-container');
+    var footerEl = document.getElementById('footer');
+    if (!footerAvatarContainer || !footerEl) return;
+
+    // Build sticky avatar element
+    var stickyAvatar = document.createElement('div');
+    stickyAvatar.classList.add('footer-avatar-sticky');
+    stickyAvatar.innerHTML = [
+        '<img src="../../../assets/images/footer-avatar-ahmad.png"',
+        '     alt="Ahmad" class="footer-avatar-img" />',
+        '<div class="footer-avatar-face">',
+        '  <div class="footer-avatar-eye footer-left-eye">',
+        '    <div class="footer-pupil" id="sticky-pupil-left"></div>',
+        '  </div>',
+        '  <div class="footer-avatar-eye footer-right-eye">',
+        '    <div class="footer-pupil" id="sticky-pupil-right"></div>',
+        '  </div>',
+        '</div>'
+    ].join('');
+    document.body.appendChild(stickyAvatar);
+
+    var stickyPupils = stickyAvatar.querySelectorAll('.footer-pupil');
+    var maxX = 5;
+    var maxY = 4;
+
+    window.addEventListener('mousemove', function (e) {
+        var avatarFace = stickyAvatar.querySelector('.footer-avatar-face');
+        if (!avatarFace) return;
+        var faceRect = avatarFace.getBoundingClientRect();
+        var faceCenterX = faceRect.left + faceRect.width / 2;
+        var faceCenterY = faceRect.top + faceRect.height / 2;
+        var dx = e.clientX - faceCenterX;
+        var dy = e.clientY - faceCenterY;
+        var distance = Math.sqrt(dx * dx + dy * dy);
+        if (distance === 0) return;
+        var px = (dx / distance) * Math.min(distance / 30, maxX);
+        var py = (dy / distance) * Math.min(distance / 30, maxY);
+        stickyPupils.forEach(function (p) {
+            p.style.transform = 'translate(' + px + 'px, ' + py + 'px)';
+        });
+    });
+
+    function checkDock() {
+        var footerTop = footerEl.getBoundingClientRect().top;
+        if (footerTop <= window.innerHeight) {
+            stickyAvatar.classList.add('hidden');
+            footerAvatarContainer.style.opacity = '1';
+        } else {
+            stickyAvatar.classList.remove('hidden');
+            footerAvatarContainer.style.opacity = '0';
+        }
+    }
+
+    window.addEventListener('scroll', checkDock, { passive: true });
+    checkDock();
+})();
 
 // ── CONSOLE SIGNATURE ────────────────────
 console.log('%c Designed and Developed by Ahmad Bilal ', 'background-image: linear-gradient(90deg,#8000ff,#6bc5f8); color: white;font-weight:900;font-size:1rem; padding:20px;');

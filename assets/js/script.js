@@ -1,11 +1,36 @@
-// preloader script............
-var loader = document.getElementById("preloader");
+// ── SPLASH SCREEN ────────────────────────
 window.addEventListener("load", function () {
-  loader.style.display = "none";
-  document.querySelector('.hey').classList.add('popup');
-})
+    var splash = document.getElementById("splash-screen");
+    if (splash) {
+        // Pace variation: randomly toggle fast/normal to make rings breathe
+        var paceTimer = null;
+        function schedulePaceChange() {
+            var delay = 600 + Math.random() * 900; // 0.6s–1.5s
+            paceTimer = setTimeout(function () {
+                if (Math.random() > 0.45) {
+                    splash.classList.add("pace-fast");
+                    splash.classList.remove("pace-normal");
+                } else {
+                    splash.classList.remove("pace-fast");
+                    splash.classList.add("pace-normal");
+                }
+                schedulePaceChange();
+            }, delay);
+        }
+        schedulePaceChange();
 
-// preloader script ends here.........
+        setTimeout(function () {
+            clearTimeout(paceTimer);
+            splash.classList.add("splash-fade-out");
+            setTimeout(function () {
+                splash.style.display = "none";
+                var hey = document.querySelector('.hey');
+                if (hey) hey.classList.add('popup');
+            }, 600);
+        }, 2600);
+    }
+});
+// ── SPLASH SCREEN END ─────────────────────
 
 // switch for setting
 function settingtoggle() {

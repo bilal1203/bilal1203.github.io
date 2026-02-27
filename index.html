@@ -41,7 +41,28 @@
 </head>
 
 <body class="body">
-  <div id="preloader"></div>
+  <!-- SPLASH SCREEN -->
+  <div id="splash-screen">
+    <div class="splash-orbits">
+      <svg class="splash-orbit-svg" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+        <circle class="orbit-ring r1" cx="300" cy="300" r="262"/>
+        <circle class="orbit-ring r2" cx="300" cy="300" r="222"/>
+        <circle class="orbit-ring r3" cx="300" cy="300" r="182"/>
+        <circle class="orbit-ring r4" cx="300" cy="300" r="142"/>
+        <circle class="orbit-ring r5" cx="300" cy="300" r="104"/>
+        <circle class="orbit-dot d1" cx="562" cy="300" r="4"/>
+        <circle class="orbit-dot d2" cx="300" cy="78"  r="3"/>
+        <circle class="orbit-dot d3" cx="482" cy="482" r="5"/>
+        <circle class="orbit-dot d4" cx="158" cy="458" r="3"/>
+        <circle class="orbit-dot d5" cx="196" cy="196" r="4"/>
+      </svg>
+    </div>
+    <div class="splash-center">
+      <img src="assets/images/nav-avatar-1.png" alt="Ahmad Bilal" class="splash-avatar needtobeinvert" />
+      <div class="splash-name">Ahmad Bilal</div>
+      <div class="splash-tagline">// Data Scientist &amp; AI Engineer</div>
+    </div>
+  </div>
   <noscript>Allow Javascript</noscript>
 
   <header>
@@ -106,11 +127,11 @@
   <!-- header ends here -->
 
   <!-- Open to work banner -->
-  <!-- TO HIDE LATER: Simply add class="hidden" to the div: <div id="open-to-work-banner" class="open-to-work-banner hidden"></div> -->
-  <div id="open-to-work-banner" class="open-to-work-banner">
-    <span class="pulse-dot"></span>
+  <!-- TO HIDE LATER: Simply add class="hidden" to the anchor: <a id="otw-banner" class="open-to-work-banner hidden"></a> -->
+  <a href="mailto:ahmad.bilal.chohan@gmail.com" class="open-to-work-banner" id="otw-banner">
+    <div class="pulse-dot"></div>
     Available for Hire
-  </div>
+  </a>
 
   <main>
     <!-- hamburger -->
