@@ -96,7 +96,7 @@ body {
     left: 0;
     transform: translate(-50%, -50%);
     border-radius: 50%;
-    z-index: 9999;
+    z-index: 9999999;
     pointer-events: none;
 }
 
@@ -514,21 +514,23 @@ noscript {
 
 .landing-page-container {
     width: 100%;
-    height: calc(100vh - 115px);
+    min-height: calc(100vh - 115px);
+    height: auto;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    padding: 40px 0;
+    box-sizing: border-box;
 }
 
 .text-content {
     display: flex;
     flex-direction: column;
     width: 60%;
-    height: 100%;
+    height: auto;
     align-items: flex-start;
     justify-content: center;
-    /* padding-left: 300px; */
 }
 
 #hello-friend {
@@ -1164,6 +1166,77 @@ body.light-mode .tech-stack-logo.light-mode-image {
 
 
 /* skills section ends */
+
+/* ========================================
+   COMPACT SKILLS SECTION
+   ======================================== */
+
+.tech-stack-wrapper-compact {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 20px;
+    margin-top: 25px;
+    margin-bottom: 40px;
+    list-style: none;
+    padding: 0;
+}
+
+.tech-stack-box-compact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 10px;
+    border-radius: 12px;
+    background-image: linear-gradient(to bottom right, var(--tech-stack-box-first-color), var(--tech-stack-box-second-color));
+    border: 1px solid var(--tech-stack-box-border-color);
+    transition: transform 0.3s, box-shadow 0.3s;
+    min-height: 120px;
+}
+
+.tech-stack-box-compact:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(128, 0, 255, 0.3);
+}
+
+.tech-stack-logo-compact {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.skill-name {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--color-white);
+    text-align: center;
+    line-height: 1.3;
+}
+
+/* Mobile adjustment */
+@media screen and (max-width: 768px) {
+    .tech-stack-wrapper-compact {
+        grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+        gap: 15px;
+    }
+    
+    .tech-stack-box-compact {
+        min-height: 100px;
+        padding: 12px 8px;
+    }
+    
+    .tech-stack-logo-compact {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .skill-name {
+        font-size: 1.2rem;
+    }
+}
+
 /* ######################################################## */
 /* projects section starts */
 .projects-section-container {
@@ -2210,13 +2283,70 @@ body.light-mode .tech-stack-logo.light-mode-image {
 }
 /* experience section ends */
 
+/* ========================================
+   RELEVANCE BADGES FOR EXPERIENCE
+   ======================================== */
+
+.relevance-badge {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.relevance-badge.relevant {
+    background: linear-gradient(135deg, #00ff88, #00cc6f);
+    color: #000;
+}
+
+.relevance-badge.less-relevant {
+    background: linear-gradient(135deg, #ffa500, #ff8c00);
+    color: #000;
+}
+
+.project-highlights {
+    margin-top: 15px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+}
+
+.project-highlights strong {
+    color: var(--color-light-blue);
+    font-size: 1.5rem;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.project-highlights ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 5px;
+}
+
+.project-highlights li {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+    padding-left: 5px;
+    color: var(--color-white);
+}
+
+.job-description {
+    font-size: 1.6rem;
+    margin-top: 10px;
+    line-height: 1.6;
+}
+
 /* ######################################################## */
 
 #backtotopbutton {
-
     position: fixed;
     right: 10px;
-    bottom: 0px;
+    bottom: 95px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -2224,7 +2354,7 @@ body.light-mode .tech-stack-logo.light-mode-image {
     border: none;
     width: 3rem;
     height: 15rem;
-    z-index: 101;
+    z-index: 10001;
     text-align: center;
     transition: all .4s;
     background-color: transparent;
@@ -3356,4 +3486,1047 @@ footer {
     .logos {
         gap: 20px;
     }
+}
+
+/* ========================================
+   OPEN TO WORK BANNER
+   ======================================== */
+
+.open-to-work-banner {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    background: linear-gradient(135deg, #00ff88, #00cc6f);
+    color: #000;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-size: 1.4rem;
+    font-weight: 700;
+    z-index: 10001;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 20px rgba(0, 255, 136, 0.3);
+    animation: gentle-bounce 3s ease-in-out infinite;
+    text-decoration: none;
+}
+
+.pulse-dot {
+    width: 10px;
+    height: 10px;
+    background-color: #000;
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.3);
+        opacity: 0.7;
+    }
+}
+
+@keyframes gentle-bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Hide banner when needed */
+.open-to-work-banner.hidden {
+    display: none;
+}
+
+/* Mobile adjustment */
+@media screen and (max-width: 768px) {
+    .open-to-work-banner {
+        bottom: 15px;
+        left: 15px;
+        font-size: 1.2rem;
+        padding: 10px 18px;
+    }
+}
+/* ========================================
+   SPLASH SCREEN
+   ======================================== */
+#splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-dark-mode);
+    z-index: 999999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.splash-avatar {
+    width: 100px;
+    height: 100px;
+    animation: splash-pop 0.6s ease-out forwards;
+}
+
+.splash-name {
+    font-size: 3.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--color-light-blue), var(--color-light-purple));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: fira code, monospace;
+    animation: splash-fade-in 0.6s 0.3s ease-out forwards;
+    opacity: 0;
+}
+
+.splash-tagline {
+    font-size: 1.6rem;
+    color: var(--color-ddd-color);
+    font-family: fira code, monospace;
+    letter-spacing: 2px;
+    animation: splash-fade-in 0.6s 0.6s ease-out forwards;
+    opacity: 0;
+}
+
+.splash-bar {
+    width: 200px;
+    height: 3px;
+    background: var(--tech-stack-box-border-color);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 10px;
+    animation: splash-fade-in 0.6s 0.6s ease-out forwards;
+    opacity: 0;
+}
+
+.splash-bar-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--color-light-blue), var(--color-purple));
+    border-radius: 10px;
+    animation: splash-load 2s 0.8s ease-out forwards;
+}
+
+@keyframes splash-pop {
+    from { transform: scale(0.5); opacity: 0; }
+    to   { transform: scale(1);   opacity: 1; }
+}
+
+@keyframes splash-fade-in {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0);    }
+}
+
+@keyframes splash-load {
+    from { width: 0%; }
+    to   { width: 100%; }
+}
+
+.splash-fade-out {
+    animation: splash-out 0.6s ease-out forwards !important;
+}
+
+@keyframes splash-out {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+
+/* ========================================
+   THEME TOGGLE BUTTON (bottom-right fixed)
+   ======================================== */
+#theme-toggle-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid var(--tech-stack-box-border-color);
+    background: linear-gradient(to bottom right, var(--tech-stack-box-first-color), var(--tech-stack-box-second-color));
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+    font-size: 2.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10001;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#theme-toggle-btn:hover {
+    transform: scale(1.1) rotate(20deg);
+    box-shadow: 0 6px 25px rgba(128, 0, 255, 0.4);
+}
+
+@media screen and (max-width: 768px) {
+    #theme-toggle-btn {
+        bottom: 15px;
+        right: 15px;
+        width: 44px;
+        height: 44px;
+        font-size: 2rem;
+    }
+}
+
+/* ========================================
+   BACK TO PORTFOLIO PILL (below navbar)
+   ======================================== */
+.back-to-portfolio-pill {
+    display: flex;
+    justify-content: center;
+    padding-top: 105px;
+    padding-bottom: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 998;
+    pointer-events: none;
+}
+
+.back-to-portfolio-pill a {
+    pointer-events: all;
+    color: var(--color-ddd-color);
+    text-decoration: none;
+    font-size: 1.4rem;
+    font-weight: 600;
+    padding: 7px 20px;
+    border-radius: 0 0 12px 12px;
+    background: linear-gradient(to bottom right, var(--tech-stack-box-first-color), var(--tech-stack-box-second-color));
+    border: 1px solid var(--tech-stack-box-border-color);
+    border-top: none;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    font-family: fira code, monospace;
+}
+
+.back-to-portfolio-pill a:hover {
+    color: var(--color-white);
+    background: linear-gradient(135deg, rgba(128,0,255,0.25), rgba(128,0,255,0.1));
+    box-shadow: 0 6px 20px rgba(128,0,255,0.25);
+}
+
+@media screen and (max-width: 998px) {
+    .back-to-portfolio-pill {
+        padding-top: 95px;
+    }
+    .back-to-portfolio-pill a {
+        font-size: 1.3rem;
+    }
+}
+
+/* ========================================
+   CATEGORY PAGE — DESKTOP NAVBAR LINKS
+   ======================================== */
+.category-navbar-links {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    gap: 2.2vw;
+    list-style: none;
+}
+
+.category-navbar-links li {
+    height: 30px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-family: fira code, monospace;
+}
+
+.category-navbar-links li a {
+    text-decoration: none;
+    color: var(--color-white);
+    font-weight: 100;
+    white-space: nowrap;
+}
+
+.category-navbar-links li a:hover {
+    color: var(--color-light-blue);
+}
+
+@media screen and (max-width: 998px) {
+    .category-navbar-links {
+        display: none;
+    }
+}
+
+/* ========================================
+   CATEGORY PAGE — MOBILE MENU BACK LINK
+   ======================================== */
+.mobile-back-link {
+    color: var(--color-light-blue) !important;
+    font-weight: 700 !important;
+}
+
+/* ========================================
+   FEATURED PROJECT CARD HOVER
+   ======================================== */
+.featured-project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(128, 0, 255, 0.2);
+}
+
+/* ========================================
+   CATEGORY PAGE MAIN PADDING ADJUSTMENT
+   (accounts for navbar + back-pill)
+   ======================================== */
+.category-main {
+    padding-top: 165px !important;
+    min-height: 100vh;
+}
+
+@media screen and (max-width: 998px) {
+    .category-main {
+        padding-top: 155px !important;
+    }
+}
+
+/* ========================================
+   CATEGORY PAGE — AMBIENT BACKGROUND BLOB
+   (matches main page feel)
+   ======================================== */
+.category-blob {
+    position: fixed;
+    right: -15%;
+    top: 0;
+    background-color: var(--color-light-purple);
+    width: 600px;
+    height: 100vh;
+    border-radius: 50%;
+    filter: blur(300px);
+    opacity: .15;
+    pointer-events: none;
+    z-index: 0;
+    animation: breath 1s linear infinite alternate-reverse;
+}
+
+/* Blob stays behind without creating a competing stacking context */
+
+/* ========================================
+   HIDE OLD SETTINGS GEAR + TOGGLE IN NAVBAR
+   (replaced by bottom-right theme button)
+   ======================================== */
+.setting-container {
+    display: none !important;
+}
+
+/* Fix for low-resolution / small-height screens */
+@media screen and (max-height: 750px) {
+    .landing-page-container {
+        padding: 20px 0;
+        align-items: flex-start;
+        padding-top: 30px;
+    }
+
+    #name {
+        font-size: 6rem;
+    }
+
+    #work {
+        font-size: 4.5rem;
+    }
+
+    #hello-friend {
+        font-size: 3rem;
+    }
+
+    #info-para {
+        font-size: 1.7rem;
+        padding-top: 15px;
+    }
+
+    .contact-btn-div {
+        padding-top: 20px;
+    }
+}
+
+@media screen and (max-height: 600px) {
+    .landing-page-container {
+        padding: 15px 0;
+    }
+
+    #name {
+        font-size: 5rem;
+    }
+
+    #work {
+        font-size: 3.8rem;
+    }
+
+    #info-para {
+        font-size: 1.5rem;
+        padding-top: 10px;
+    }
+}
+
+/* ============================================================
+   PORTFOLIO FIXES — Paste these rules at the END of styles.css
+   They override the original rules via specificity/cascade.
+   ============================================================ */
+
+
+/* ============================================================
+   FIX 1 — Hero CTA visible before About section on scroll
+   
+   Root cause: On low-res screens the hero content is taller
+   than the viewport. The user hasn't seen the CTA yet but
+   the About section is already entering view when they scroll.
+   
+   Solution: Scale down the hero typography progressively so
+   ALL hero content (including the CTA) fits in one viewport
+   height without scrolling. We target viewport HEIGHT not width.
+   ============================================================ */
+
+/* ============================================================
+   FIX 1 v3 — Hero fits in one viewport so CTA always visible
+   ============================================================ */
+
+.landing-page-container {
+    min-height: calc(100vh - 115px);
+    height: calc(100vh - 115px);
+    max-height: calc(100vh - 115px);
+    overflow: hidden;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.text-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+}
+
+@media screen and (max-height: 900px) {
+    #hello-friend { font-size: 3rem; }
+    #name  { font-size: 7rem; }
+    #work  { font-size: 5rem; }
+    #info-para { font-size: 1.8rem; padding-top: 20px; line-height: 22px; }
+    .contact-btn-div { padding-top: 28px; }
+}
+
+@media screen and (max-height: 780px) {
+    #hello-friend { font-size: 2.8rem; }
+    #name  { font-size: 6rem; }
+    #work  { font-size: 4.2rem; }
+    #work div { margin: 0 8px 0 0; }
+    #info-para { font-size: 1.6rem; padding-top: 14px; line-height: 20px; }
+    .contact-btn-div { padding-top: 18px; }
+    .resume-btn { margin-top: 14px; }
+}
+
+@media screen and (max-height: 680px) {
+    #hello-friend { font-size: 2.4rem; }
+    #name  { font-size: 5rem; }
+    #work  { font-size: 3.5rem; }
+    #info-para { font-size: 1.5rem; padding-top: 10px; line-height: 18px; }
+    .contact-btn-div { padding-top: 12px; }
+    .resume-btn { margin-top: 10px; }
+}
+
+@media screen and (max-height: 580px) {
+    #hello-friend { font-size: 2rem; }
+    #name  { font-size: 4rem; }
+    #work  { font-size: 2.8rem; }
+    #info-para { font-size: 1.4rem; padding-top: 8px; line-height: 16px; width: 90%; }
+    .contact-btn-div { padding-top: 8px; }
+    .resume-btn { margin-top: 8px; }
+}
+
+
+/* ============================================================
+   FIX 2 — Resume Button: Always-Expanded + New Hover Effect
+   Default state = full pill (icon + "Resume" text visible).
+   Hover = subtle lift + purple glow (matches page theme).
+   ============================================================ */
+
+.resume-btn {
+    /* Always show the expanded pill state */
+    width: 140px;
+    height: 45px;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: hidden;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(82.3deg,
+        rgba(150, 93, 233, 1) 10.8%,
+        rgba(99, 88, 238, 1) 94.3%);
+    box-shadow: 0 4px 14px rgba(128, 0, 255, 0.35);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    position: relative;
+    /* Remove the grow-on-hover by fixing width */
+}
+
+/* Icon — always in compact left position */
+.resume-btn .sign {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 14px;
+    flex-shrink: 0;
+    transition: none;
+}
+
+.resume-btn .sign svg {
+    width: 17px;
+}
+
+.resume-btn .sign svg path {
+    fill: white;
+}
+
+/* Text — always visible */
+.resume-btn .text {
+    position: static;     /* override absolute positioning */
+    opacity: 1;
+    width: auto;
+    flex: 1;
+    color: white;
+    font-size: 1.4rem;
+    font-weight: 600;
+    padding-right: 14px;
+    text-align: center;
+    transition: none;
+}
+
+/* New hover: subtle lift + stronger glow — no width change */
+.resume-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(128, 0, 255, 0.55);
+    width: 140px;          /* keep fixed — no grow */
+    border-radius: 40px;
+}
+
+/* Kill the old hover overrides that changed sign/text width */
+.resume-btn:hover .sign {
+    width: 30%;
+    padding-left: 14px;
+}
+
+.resume-btn:hover .text {
+    opacity: 1;
+    width: auto;
+    padding-right: 14px;
+}
+
+.resume-btn:active {
+    transform: translateY(0px) translateX(0px);
+    box-shadow: 0 3px 10px rgba(128, 0, 255, 0.3);
+}
+
+
+/* ============================================================
+   FIX 3 — Skills: Dark/Light Mode Logo Visibility
+   Uses the existing dark-mode-image / light-mode-image classes
+   that are already on the <img> tags.
+   The original CSS only targeted .tech-stack-logo not
+   .tech-stack-logo-compact — this fix covers both.
+   ============================================================ */
+
+/* --- COMPACT skill boxes (the ones actually used) --- */
+
+/* Dark mode default: show dark logo, hide light logo */
+.tech-stack-logo-compact.dark-mode-image {
+    display: block;
+}
+.tech-stack-logo-compact.light-mode-image {
+    display: none;
+}
+
+/* Light mode: swap */
+body.light-mode .tech-stack-logo-compact.dark-mode-image {
+    display: none;
+}
+body.light-mode .tech-stack-logo-compact.light-mode-image {
+    display: block;
+}
+
+/* --- Legacy large skill boxes (safety net) --- */
+.tech-stack-logo.dark-mode-image {
+    display: block;
+}
+.tech-stack-logo.light-mode-image {
+    display: none;
+}
+body.light-mode .tech-stack-logo.dark-mode-image {
+    display: none;
+}
+body.light-mode .tech-stack-logo.light-mode-image {
+    display: block;
+}
+
+
+/* ============================================================
+   FIX 4a — Project Cards: Remove Unwanted Underline
+   The underline comes from the <a> wrapping the card having
+   text-decoration, or from h3 inside .project-category-name-div.
+   ============================================================ */
+
+.project-category-hover-effect {
+    text-decoration: none !important;
+}
+
+.project-category-name-div h3 {
+    text-decoration: none !important;
+}
+
+/* Also remove any inherited underline from anchor states */
+.project-category-hover-effect:hover,
+.project-category-hover-effect:visited,
+.project-category-hover-effect:focus {
+    text-decoration: none !important;
+}
+
+
+/* ============================================================
+   FIX 4b — Project Cards: Consistent Right-Click on Images
+   CSS cannot fully control context menus, but we can ensure
+   the image is NOT pointer-events:none and that the anchor
+   wraps it correctly so the browser treats it as a link target.
+   The JS fix (in script.js) is what truly solves this —
+   see the JS patch below this CSS file.
+
+   Here we just make sure the image sits inside the link's
+   hit area with no CSS block on events.
+   ============================================================ */
+
+.project-category-image-div img {
+    pointer-events: auto;   /* ensure image is part of the link */
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.project-category-image-div {
+    pointer-events: auto;
+}
+
+
+/* ============================================================
+   FIX 5 FINAL — Timeline line: 
+   1. Hidden until Experience heading is in view
+   2. Line starts exactly at the icon center (not above it)
+   3. Date text made larger and readable
+   ============================================================ */
+
+/* 1. Hide line by default — JS will reveal it */
+.experience-timeline-div::after {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    /* Fix line start: push it down so it begins AT the icon,
+       not above it. The icon is at top:15px inside .container
+       which has padding-top:10px = icon center ~45px from top.
+       The timeline div has padding:40px 0, so total offset
+       from ::after top:0 to icon center = 40+15+30 = ~85px */
+    top: 85px;
+    bottom: 45px;
+}
+
+/* JS adds .timeline-visible to #experience when heading is on screen */
+#experience.timeline-visible .experience-timeline-div::after {
+    opacity: 1;
+}
+
+/* 2. Date text — much larger and visible */
+.duration {
+    font-size: 1.4rem !important;
+    color: #aaa !important;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.left .duration {
+    right: -160px;
+}
+
+.right .duration {
+    left: -160px;
+}
+
+/* On smaller screens where duration goes off-screen, 
+   move it below the card */
+@media screen and (max-width: 1100px) {
+    .duration {
+        font-size: 1.2rem !important;
+        right: auto !important;
+        left: auto !important;
+        position: static !important;
+        display: block;
+        text-align: center;
+        margin-top: 10px;
+        color: #aaa !important;
+    }
+    
+    .left .duration,
+    .right .duration {
+        right: auto;
+        left: auto;
+    }
+}
+
+/* ============================================================
+   FIX — About section text matches hero #info-para font size
+   at every viewport height breakpoint
+   ============================================================ */
+
+@media screen and (max-height: 900px) {
+    .about-info p { font-size: 1.8rem; line-height: 22px; }
+}
+
+@media screen and (max-height: 780px) {
+    .about-info p { font-size: 1.6rem; line-height: 20px; }
+}
+
+@media screen and (max-height: 680px) {
+    .about-info p { font-size: 1.5rem; line-height: 18px; }
+}
+
+@media screen and (max-height: 580px) {
+    .about-info p { font-size: 1.4rem; line-height: 16px; }
+}
+
+/* ============================================================
+   FIX — Skill logos bigger inside compact cards
+   ============================================================ */
+
+.tech-stack-box-compact {
+    min-height: 130px;
+    padding: 18px 10px;
+}
+
+.tech-stack-logo-compact {
+    width: 65px;
+    height: 65px;
+    margin-bottom: 12px;
+}
+
+@media screen and (max-width: 768px) {
+    .tech-stack-logo-compact {
+        width: 50px;
+        height: 50px;
+    }
+    .tech-stack-box-compact {
+        min-height: 110px;
+    }
+}
+
+/* ============================================================
+   Avatar sticky v4 — fixes missing eyes
+   Key fix: face div must use position:absolute with precise
+   bottom offset tuned to the 120px avatar image proportions
+   ============================================================ */
+
+.footer-avatar-sticky {
+    position: fixed;
+    bottom: 0;
+    right: 90px;
+    width: 120px;
+    height: 120px;
+    z-index: 10001;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    /* NO overflow:hidden — that was clipping the eyes */
+}
+
+.footer-avatar-sticky .footer-avatar-img {
+    width: 120px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 3;
+}
+
+/* Face sits OVER the image, absolutely positioned */
+.footer-avatar-sticky .footer-avatar-face {
+    position: absolute;
+    /* 
+       Original footer avatar: image is ~220px wide.
+       The face is at height:122% of a 220px container = ~268px total.
+       Eyes appear roughly 68% from bottom of the image.
+       At 120px wide, same ratio: 120 * 0.68 = ~82px from bottom 
+    */
+    bottom: 62px;
+    left: 0;
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Original had gap:26px and padding-left:12.5px at 220px width.
+       At 120px we scale proportionally: 26*(120/220)=14px gap, 7px padding */
+    gap: 13px;
+    padding-left: 13px;
+    z-index: 2;
+}
+
+.footer-avatar-sticky .footer-avatar-eye {
+    width: 11px;
+    height: 11px;
+    background-color: rgb(223, 210, 210);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.footer-avatar-sticky .footer-left-eye {
+    box-shadow: -2px -3px 2px rgba(0,0,0,0.349) inset;
+}
+
+.footer-avatar-sticky .footer-right-eye {
+    box-shadow: 3px 3px 2px rgba(0,0,0,0.233) inset;
+}
+
+.footer-avatar-sticky .footer-pupil {
+    width: 7px;
+    height: 7px;
+    background-color: black;
+    border-radius: 50%;
+    border: 2px solid rgb(65, 51, 51);
+}
+
+/* Eye highlight dot */
+.footer-avatar-sticky .footer-avatar-eye::before {
+    position: absolute;
+    content: "";
+    width: 1px;
+    height: 1px;
+    border-radius: 50%;
+    background-color: rgba(214, 214, 214, 0.726);
+    z-index: 2;
+    left: 3px;
+    transform: rotate(45deg);
+}
+
+.footer-avatar-sticky.hidden {
+    opacity: 0;
+}
+
+.footer-avatar-container {
+    transition: opacity 0.4s ease;
+}
+
+@media screen and (max-width: 768px) {
+    .footer-avatar-sticky {
+        right: 70px;
+        width: 90px;
+        height: 90px;
+    }
+
+    .footer-avatar-sticky .footer-avatar-img {
+        width: 90px;
+    }
+
+    .footer-avatar-sticky .footer-avatar-face {
+        bottom: 47px;          /* scaled from your 62px at 120px image */
+        gap: 11px;             /* scaled from 13px */
+        padding-left: 12px;    /* scaled from 13px */
+    }
+
+    .footer-avatar-sticky .footer-avatar-eye {
+        width: 7px;
+        height: 7px;
+    }
+
+    .footer-avatar-sticky .footer-pupil {
+        width: 4px;
+        height: 4px;
+    }
+}
+/* ============================================================
+   Experience Cards — Option A
+   Matches project/education card style:
+   - Purple corner glow hover (::before/::after)
+   - Gradient text on job title
+   - Subtle top accent border in purple-to-blue
+   - Card background matches tech-stack gradient
+   ============================================================ */
+
+/* Wrapper for hover effect — mirrors .project-category-hover-effect */
+.container {
+    position: relative;
+}
+
+.container::before,
+.container::after {
+    display: none; /* remove the old arrow triangle pseudo-elements */
+}
+
+/* New hover glow wrapper — applied to .content */
+.content {
+    background-image: linear-gradient(to bottom right, var(--tech-stack-box-first-color), var(--tech-stack-box-second-color));
+    border: 2px solid var(--tech-stack-box-border-color);
+    border-top: 2px solid transparent;
+    border-radius: 16px;
+    padding: 25px 30px 25px 30px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Top accent line — purple to blue gradient */
+.content::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #8000ff, #6bc5f8);
+    border-radius: 16px 16px 0 0;
+}
+
+/* Corner glow pseudo on .content — mirrors project cards */
+.content::after {
+    content: "";
+    background-color: transparent;
+    height: 100%;
+    width: 100%;
+    border-radius: 16px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    box-shadow: 2px 2px 0px inset #8000ff,
+                -2px -2px 0px inset transparent;
+    transition: box-shadow 0.5s ease;
+    pointer-events: none;
+}
+
+.container:hover .content::after {
+    box-shadow: 2px 2px 0px inset transparent,
+                -2px -2px 0px inset #8000ff;
+}
+
+.container:hover .content {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 35px rgba(128, 0, 255, 0.25);
+}
+
+/* All content children sit above the pseudo-elements */
+.content > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Job title — gradient text matching page headings */
+.content .jobtitle {
+    font-size: 2.4rem;
+    font-weight: 700;
+    background-image: linear-gradient(90deg, var(--static-heading-gradient-blue), var(--static-heading-gradient-pink));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.3;
+    margin: 8px 0 6px;
+}
+
+/* Company name — lighter accent */
+.content .companyname {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--color-light-blue);
+    margin: 0 0 10px;
+}
+
+/* Description + list text */
+.content .job-description {
+    font-size: 1.5rem;
+    color: var(--color-ddd-color);
+    line-height: 1.6;
+    margin-top: 8px;
+}
+
+.content ul {
+    color: var(--color-ddd-color);
+    font-size: 1.5rem;
+    line-height: 1.7;
+    padding-left: 18px;
+    margin-top: 8px;
+}
+
+/* Project highlights box inside card */
+.project-highlights {
+    background: rgba(128, 0, 255, 0.08);
+    border: 1px solid rgba(128, 0, 255, 0.2);
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin-top: 12px;
+}
+
+.project-highlights strong {
+    color: var(--color-light-blue);
+    font-size: 1.4rem;
+    display: block;
+    margin-bottom: 8px;
+    letter-spacing: 0.3px;
+}
+
+.project-highlights li {
+    font-size: 1.45rem;
+    color: var(--color-ddd-color);
+    margin-bottom: 6px;
+    padding-left: 0;
+}
+
+/* Relevance badge — keep existing styles, just refine */
+.relevance-badge {
+    font-size: 1.1rem;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    margin-bottom: 4px;
+    display: inline-block;
+}
+
+/* Icon circle — match theme */
+.icon-container {
+    background: linear-gradient(135deg, #8000ff, #6bc5f8);
+    border: 2px solid transparent;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.container:hover .icon-container {
+    box-shadow: 0 0 20px rgba(128, 0, 255, 0.6);
+    transform: scale(1.1);
+    /* override the old inset fill effect */
+    background: linear-gradient(135deg, #8000ff, #6bc5f8) !important;
+}
+
+/* Remove old arrow triangles completely */
+.left::before,
+.right::before {
+    display: none;
 }

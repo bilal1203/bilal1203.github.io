@@ -14,13 +14,20 @@ function settingtoggle() {
 }
 
 function visualmode() {
-  document.body.classList.toggle('light-mode');
-  var elements = document.querySelectorAll('.needtobeinvert');
+  document.body.classList.toggle("light-mode");
+  var elements = document.querySelectorAll(".needtobeinvert");
   elements.forEach(function (element) {
-    element.classList.toggle('invertapplied');
+    element.classList.toggle("invertapplied");
   });
-
-
+  
+  // Update icon based on current theme
+  const icon = document.getElementById("theme-toggle-icon");
+  if (icon) {
+    icon.textContent = document.body.classList.contains("light-mode") ? "🌙" : "☀️";
+  }
+  
+  // Save preference to localStorage
+  localStorage.setItem("theme", document.body.classList.contains("light-mode") ? "light" : "dark");
 }
 
 function scrollToActiveMenuItem() {
@@ -41,7 +48,7 @@ function hamburgerMenu() {
   document.getElementById("burger-bar1").classList.toggle("hamburger-animation1");
   document.getElementById("burger-bar2").classList.toggle("hamburger-animation2");
   document.getElementById("burger-bar3").classList.toggle("hamburger-animation3");
-  if (mobileMenu.classList.contains('show-toggle-menu')) {
+  if (mobileTogglemenu.classList.contains('show-toggle-menu')) {
     scrollToActiveMenuItem();
 }
 }
@@ -109,8 +116,15 @@ function scrolltoTopfunction() {
 // }, false);
 
 document.addEventListener("contextmenu", function (e) {
+  // Only block right-click on the profile picture, not project images
   if (e.target.nodeName === "IMG") {
-    e.preventDefault();
+    const isProfilePic = e.target.closest('.dp') !== null;
+    const isNavAvatar  = e.target.id === "nav-avatar";
+    const isFooterAv   = e.target.closest('.footer-avatar-container') !== null;
+    if (isProfilePic || isNavAvatar || isFooterAv) {
+      e.preventDefault();
+    }
+    // Project card images, skill logos, cert logos → context menu allowed
   }
 }, false);
 
@@ -165,3 +179,134 @@ const windowResize = (event) => {
 
 window.addEventListener('mousemove', mouseMove);
 window.addEventListener('resize', windowResize);
+
+(function() {
+  const savedTheme = localStorage.getItem("theme");
+  const icon = document.getElementById("theme-toggle-icon");
+  if (savedTheme === "light") {
+    document.body.classList.add("light-mode");
+    if (icon) icon.textContent = "🌙";
+  } else {
+    if (icon) icon.textContent = "☀️";
+  }
+})();
+
+/* ============================================================
+   ADD THIS CODE to the bottom of assets/js/script.js
+   
+   Uses IntersectionObserver to watch the Experience section.
+   When the section's HEADING enters the viewport, it adds
+   the class "timeline-visible" which fades the vertical line in.
+   This way the line is never visible before the heading is seen.
+   ============================================================ */
+
+(function () {
+    var experienceSection = document.getElementById('experience');
+    if (!experienceSection) return;
+
+    var observer = new IntersectionObserver(
+        function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    experienceSection.classList.add('timeline-visible');
+                    observer.disconnect();
+                }
+            });
+        },
+        {
+            /* Fire when the Experience HEADING itself enters the screen.
+               rootMargin '0px 0px 0px 0px' means: trigger as soon as
+               ANY part of #experience enters the viewport from below.
+               The heading is at the top of #experience so this fires
+               exactly when the heading scrolls into view. */
+            rootMargin: '0px 0px 0px 0px',
+            threshold: 0
+        }
+    );
+
+    observer.observe(experienceSection);
+})();
+
+/* ============================================================
+   PASTE at bottom of assets/js/script.js
+   (Remove any previous avatar sticky code first)
+
+   Creates a fixed avatar beside the theme toggle button.
+   Eyes track the cursor. Hides when footer is in view
+   so the original footer avatar takes over seamlessly.
+   ============================================================ */
+
+(function () {
+    var footerAvatarContainer = document.querySelector('.footer-avatar-container');
+    var footerEl = document.getElementById('footer');
+    if (!footerAvatarContainer || !footerEl) return;
+
+    /* Build sticky avatar */
+    var stickyAvatar = document.createElement('div');
+    stickyAvatar.classList.add('footer-avatar-sticky');
+    stickyAvatar.innerHTML = [
+        '<img src="assets/images/footer-avatar-ahmad.png"',
+        '     alt="Ahmad" class="footer-avatar-img" />',
+        '<div class="footer-avatar-face">',
+        '  <div class="footer-avatar-eye footer-left-eye">',
+        '    <div class="footer-pupil" id="sticky-pupil-left"></div>',
+        '  </div>',
+        '  <div class="footer-avatar-eye footer-right-eye">',
+        '    <div class="footer-pupil" id="sticky-pupil-right"></div>',
+        '  </div>',
+        '</div>'
+    ].join('');
+    document.body.appendChild(stickyAvatar);
+
+    var stickyPupils = stickyAvatar.querySelectorAll('.footer-pupil');
+
+    /* 
+       Eye tracking: calculate direction FROM the avatar's eye center
+       TOWARD the cursor, then move pupil in that direction.
+       
+       Max pupil travel range (in px) — same as original
+    */
+    var maxX = 5;
+    var maxY = 4;
+
+    window.addEventListener('mousemove', function (e) {
+        /* Get avatar face center position on screen */
+        var avatarFace = stickyAvatar.querySelector('.footer-avatar-face');
+        if (!avatarFace) return;
+
+        var faceRect = avatarFace.getBoundingClientRect();
+        var faceCenterX = faceRect.left + faceRect.width / 2;
+        var faceCenterY = faceRect.top + faceRect.height / 2;
+
+        /* Vector from face center to cursor */
+        var dx = e.clientX - faceCenterX;
+        var dy = e.clientY - faceCenterY;
+
+        /* Normalize to get direction, then scale to max travel range */
+        var distance = Math.sqrt(dx * dx + dy * dy);
+        if (distance === 0) return;
+
+        /* Cap the travel — pupils shouldn't move more than maxX/maxY px */
+        var px = (dx / distance) * Math.min(distance / 30, maxX);
+        var py = (dy / distance) * Math.min(distance / 30, maxY);
+
+        stickyPupils.forEach(function (p) {
+            p.style.transform = 'translate(' + px + 'px, ' + py + 'px)';
+        });
+    });
+
+    /* Dock/undock */
+    function checkDock() {
+        var footerTop = footerEl.getBoundingClientRect().top;
+        if (footerTop <= window.innerHeight) {
+            stickyAvatar.classList.add('hidden');
+            footerAvatarContainer.style.opacity = '1';
+        } else {
+            stickyAvatar.classList.remove('hidden');
+            footerAvatarContainer.style.opacity = '0';
+        }
+    }
+
+    window.addEventListener('scroll', checkDock, { passive: true });
+    checkDock();
+})();

@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI & Machine Learning Projects | Ahmad Bilal</title>
+    <link rel="stylesheet" href="../../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../../assets/css/project-modal.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Orbitron:wght@400;500;700;900&family=Passion+One:wght@400;700;900&family=Six+Caps&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- SPLASH SCREEN -->
+    <div id="splash-screen">
+        <img src="../../../assets/images/nav-avatar-1.png" alt="Ahmad Bilal" class="splash-avatar needtobeinvert" />
+        <div class="splash-name">Ahmad Bilal</div>
+        <div class="splash-tagline">// Data Scientist &amp; AI Engineer</div>
+        <div class="splash-bar"><div class="splash-bar-fill"></div></div>
+    </div>
+
+    <header>
+        <div class="cursor-inner" id="cursor-inner"></div>
+        <div class="cursor-outer" id="cursor-outer"></div>
+
+        <div class="navbar" id="navbar">
+            <div class="logo" tabindex="0">
+                <div class="logo-top">
+                    <img src="../../../assets/images/nav-avatar-1.png" alt="Ahmad Bilal" />
+                </div>
+            </div>
+
+            <!-- Desktop nav links -->
+            <ul class="category-navbar-links">
+                <li><a href="../../../index.html#home">&lt;/Home&gt;</a></li>
+                <li><a href="../../../index.html#about">&lt;/AboutMe&gt;</a></li>
+                <li><a href="../../../index.html#skills">&lt;/Skills&gt;</a></li>
+                <li><a href="../../../index.html#projects">&lt;/Projects&gt;</a></li>
+                <li><a href="../../../index.html#education">&lt;/Education&gt;</a></li>
+                <li><a href="../../../index.html#experience">&lt;/Experience&gt;</a></li>
+                <li><a href="../../../index.html#blogs">&lt;/Blogs&gt;</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- BACK TO PORTFOLIO PILL (sits below navbar) -->
+    <div class="back-to-portfolio-pill">
+        <a href="../../../index.html#projects">← Back to Portfolio</a>
+    </div>
+
+    <!-- MOBILE HAMBURGER -->
+    <div class="hamburger" id="hamburger">
+        <div class="hamburgerbase">
+            <button id="hamburger-button" onclick="hamburgerMenu()">
+                <div class="burger-bar" id="burger-bar1"></div>
+                <div class="burger-bar" id="burger-bar2"></div>
+                <div class="burger-bar" id="burger-bar3"></div>
+            </button>
+        </div>
+    </div>
+
+    <!-- MOBILE SLIDE-OUT MENU -->
+    <div class="mobiletogglemenu" id="mobiletogglemenu">
+        <ul class="mobile-navbar-tabs-ul">
+            <li class="mobile-navbar-tabs-li" onclick="hidemenubyli()">
+                <a href="../../../index.html#projects" class="mobile-back-link">← Back to Portfolio</a>
+            </li>
+            <li class="mobile-navbar-tabs-li home" onclick="hidemenubyli()">
+                <a href="../../../index.html#home">&lt;/Home&gt;</a>
+            </li>
+            <li class="mobile-navbar-tabs-li about" onclick="hidemenubyli()">
+                <a href="../../../index.html#about">&lt;/AboutMe&gt;</a>
+            </li>
+            <li class="mobile-navbar-tabs-li skills" onclick="hidemenubyli()">
+                <a href="../../../index.html#skills">&lt;/Skills&gt;</a>
+            </li>
+            <li class="mobile-navbar-tabs-li projects" onclick="hidemenubyli()">
+                <a href="../../../index.html#projects">&lt;/Projects&gt;</a>
+            </li>
+            <li class="mobile-navbar-tabs-li education" onclick="hidemenubyli()">
+                <a href="../../../index.html#education">&lt;/Education&gt;</a>
+            </li>
+            <li class="mobile-navbar-tabs-li experience" onclick="hidemenubyli()">
+                <a href="../../../index.html#experience">&lt;/Experience&gt;</a>
+            </li>
+            <li class="mobile-navbar-tabs-li blogs" onclick="hidemenubyli()">
+                <a href="../../../index.html#blogs">&lt;/Blogs&gt;</a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- AMBIENT BACKGROUND BLOB (matches main page) -->
+    <div class="category-blob"></div>
+
+    <!-- AVAILABLE FOR HIRE BADGE (bottom-left) -->
+    <a href="mailto:ahmad.bilal.chohan@gmail.com" class="open-to-work-banner" id="otw-banner">
+        <div class="pulse-dot"></div>
+        Available for Hire
+    </a>
+
+    <!-- THEME TOGGLE BUTTON (bottom-right) -->
+    <button id="theme-toggle-btn" onclick="visualmode()" title="Toggle light/dark mode">
+        <span id="theme-toggle-icon">☀️</span>
+    </button>
+
+    <main class="category-main">
+        <div style="width: 70%; margin: 0 auto;">
+<div style="width: 70%; margin: 0 auto;">
+            
+            <!-- Page Header -->
+            <div style="text-align: center; margin-bottom: 60px;" data-aos="fade-up">
+                <h1 style="font-size: 4.5rem; font-weight: 700; background: linear-gradient(90deg, var(--static-heading-gradient-blue), var(--static-heading-gradient-pink)); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 15px;">
+                    🤖 AI & Machine Learning Projects
+                </h1>
+                <p style="font-size: 2rem; color: var(--color-ddd-color);">
+                    Production-ready AI systems and research work in computer vision and deep learning
+                </p>
+            </div>
+
+            <!-- Project Cards Grid -->
+            <div style="display: grid; gap: 40px; margin-bottom: 80px;">
+
+                <!-- PROJECT 1: Computer Vision Safety System -->
+                <div class="featured-project-card" data-aos="fade-up" style="background: linear-gradient(to bottom right, var(--tech-stack-box-first-color), var(--tech-stack-box-second-color)); border: 2px solid var(--tech-stack-box-border-color); border-radius: 20px; padding: 40px; display: flex; gap: 30px; align-items: center; cursor: pointer; transition: transform 0.3s;" onclick="openModal('modal-cv-safety')">
+                    
+                    <div style="width: 35%;">
+                        <div class="cv-graphic" style="width: 100%; aspect-ratio: 1; border-radius: 15px; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                            <span style="font-size: 6rem;">🎯</span>
+                            <span style="font-size: 2rem; font-weight: 700; color: white; text-transform: uppercase; letter-spacing: 2px;">Computer Vision</span>
+                        </div>
+                    </div>
+
+                    <div style="width: 65%;">
+                        <span style="display: inline-block; padding: 6px 14px; border-radius: 20px; font-size: 1.3rem; font-weight: 700; background: linear-gradient(135deg, #00ff88, #00cc6f); color: #000; margin-bottom: 10px;">🟢 PRODUCTION</span>
+                        <h2 style="font-size: 2.8rem; font-weight: 700; color: var(--color-white); margin-bottom: 10px;">Computer Vision Safety System</h2>
+                        <p style="font-size: 1.6rem; color: var(--color-light-blue); font-style: italic; margin-bottom: 15px;">Totalogix SMC Pvt Ltd | Jun 2025 – Aug 2025</p>
+                        <p style="font-size: 1.7rem; color: var(--color-ddd-color); line-height: 1.7; margin-bottom: 15px;">
+                            Fine-tuned YOLOv8 for real-time human detection around industrial machinery. Integrated via Modbus to PLC for automated machine shutdown and safety alarms.
+                        </p>
+                        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                            <span style="padding: 6px 12px; background: rgba(128, 0, 255, 0.2); border: 1px solid rgba(128, 0, 255, 0.4); border-radius: 6px; font-size: 1.3rem; color: var(--color-white);">Python</span>
+                            <span style="padding: 6px 12px; background: rgba(128, 0, 255, 0.2); border: 1px solid rgba(128, 0, 255, 0.4); border-radius: 6px; font-size: 1.3rem; color: var(--color-white);">PyTorch</span>
+                            <span style="padding: 6px 12px; background: rgba(128, 0, 255, 0.2); border: 1px solid rgba(128, 0, 255, 0.4); border-radius: 6px; font-size: 1.3rem; color: var(--color-white);">YOLOv8</span>
+                            <span style="padding: 6px 12px; background: rgba(128, 0, 255, 0.2); border: 1px solid rgba(128, 0, 255, 0.4); border-radius: 6px; font-size: 1.3rem; color: var(--color-white);">Modbus</span>
+                        </div>
+                        <button style="margin-top: 20px; padding: 10px 20px; background: linear-gradient(135deg, #8000ff, #6000cc); color: white; border: none; border-radius: 8px; font-size: 1.5rem; font-weight: 600; cursor: pointer;">View Details →</button>
+                    </div>
+                </div>
+
+                <!-- PROJECT 2: LIDAR 3D Object Detection -->
+                <div class="featured-project-card" data-aos="fade-up" style="background: linear-gradient(to bottom right, var(--tech-stack-box-first-color), var(--tech-stack-box-second-color)); border: 2px solid var(--tech-stack-box-border-color); border-radius: 20px; padding: 40px; display: flex; gap: 30px; align-items: center; cursor: pointer; transition: transform 0.3s;" onclick="openModal('modal-lidar')">
+                    
+                    <div style="width: 35%;">
+                        <div class="lidar-graphic" style="width: 100%; aspect-ratio: 1; border-radius: 15px; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                            <span style="font-size: 6rem;">🧠</span>
+                            <span style="font-size: 2rem; font-weight: 700; color: white; text-transform: uppercase; letter-spacing: 2px;">Deep Learning</span>
+                        </div>
+                    </div>
+
+                    <div style="width: 65%;">
+                        <span style="display: inline-block; padding: 6px 14px; border-radius: 20px; font-size: 1.3rem; font-weight: 700; background: linear-gradient(135deg, #4facfe, #00f2fe); color: #000; margin-bottom: 10px;">🔵 RESEARCH</span>
+                        <h2 style="font-size: 2.8rem; font-weight: 700; color: var(--color-white); margin-bottom: 10px;">Real-time 3D Object Detection using LIDAR</h2>
+                        <p style="font-size: 1.6rem; color: var(--color-light-blue); font-style: italic; margin-bottom: 15px;">UM-SJTU Joint Institute | Sep 2017 – Sep 2022</p>
+                        <p style="font-size: 1.7rem; color: var(--color-ddd-color); line-height: 1.7; margin-bottom: 15px;">
+                            Master's thesis research developing CNN-based deep learning models for 3D point cloud processing and classification for autonomous vehicles.
+                        </p>
+                        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                            <span style="padding: 6px 12px; background: rgba(128, 0, 255, 0.2); border: 1px solid rgba(128, 0, 255, 0.4); border-radius: 6px; font-size: 1.3rem; color: var(--color-white);">Python</span>
+                            <span style="padding: 6px 12px; background: rgba(128, 0, 255, 0.2); border: 1px solid rgba(128, 0, 255, 0.4); border-radius: 6px; font-size: 1.3rem; color: var(--color-white);">TensorFlow</span>
+                            <span style="padding: 6px 12px; background: rgba(128, 0, 255, 0.2); border: 1px solid rgba(128, 0, 255, 0.4); border-radius: 6px; font-size: 1.3rem; color: var(--color-white);">PyTorch</span>
+                            <span style="padding: 6px 12px; background: rgba(128, 0, 255, 0.2); border: 1px solid rgba(128, 0, 255, 0.4); border-radius: 6px; font-size: 1.3rem; color: var(--color-white);">CUDA</span>
+                        </div>
+                        <button style="margin-top: 20px; padding: 10px 20px; background: linear-gradient(135deg, #8000ff, #6000cc); color: white; border: none; border-radius: 8px; font-size: 1.5rem; font-weight: 600; cursor: pointer;">View Details →</button>
+                    </div>
+                </div>
+
+                <!-- PROJECT 3: Autonomous Vehicle Perception -->
+                <div class="featured-project-card" data-aos="fade-up" style="background: linear-gradient(to bottom right, var(--tech-stack-box-first-color), var(--tech-stack-box-second-color)); border: 2px solid var(--tech-stack-box-border-color); border-radius: 20px; padding: 40px; display: flex; gap: 30px; align-items: center; cursor: pointer; transition: transform 0.3s;" onclick="openModal('modal-av')">
+                    
+                    <div style="width: 35%;">
+                        <div class="av-graphic" style="width: 100%; aspect-ratio: 1; border-radius: 15px; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                            <span style="font-size: 6rem;">🤖</span>
+                            <span style="font-size: 2rem; font-weight: 700; color: white; text-transform: uppercase; letter-spacing: 2px;">Autonomous Vehicles</span>
+                        </div>
+                    </div>
+
+                    <div style="width: 65%;">
+                        <span style="display: inline-block; padding: 6px 14px; border-radius: 20px; font-size: 1.3rem; font-weight: 700; background: linear-gradient(135deg, #ffd700, #ffed4e); color: #000; margin-bottom: 10px;">🟡 INTERNSHIP</span>
+                        <h2 style="font-size: 2.8rem; font-weight: 700; color: var(--color-white); margin-bottom: 10px;">Autonomous Vehicle Perception System</h2>
+                        <p style="font-size: 1.6rem; color: var(--color-light-blue); font-style: italic; margin-bottom: 15px;">SUPERG.AI | Feb 2019 – May 2019</p>
+                        <p style="font-size: 1.7rem; color: var(--color-ddd-color); line-height: 1.7; margin-bottom: 15px;">
+                            Contributed to autonomous vehicle development project. Worked on 3D object detection and tracking algorithms using LIDAR point cloud data.
+                        </p>
+                        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                            <span style="padding: 6px 12px; background: rgba(128, 0, 255, 0.2); border: 1px solid rgba(128, 0, 255, 0.4); border-radius: 6px; font-size: 1.3rem; color: var(--color-white);">Python</span>
+                            <span style="padding: 6px 12px; background: rgba(128, 0, 255, 0.2); border: 1px solid rgba(128, 0, 255, 0.4); border-radius: 6px; font-size: 1.3rem; color: var(--color-white);">C++</span>
+                            <span style="padding: 6px 12px; background: rgba(128, 0, 255, 0.2); border: 1px solid rgba(128, 0, 255, 0.4); border-radius: 6px; font-size: 1.3rem; color: var(--color-white);">LIDAR</span>
+                        </div>
+                        <button style="margin-top: 20px; padding: 10px 20px; background: linear-gradient(135deg, #8000ff, #6000cc); color: white; border: none; border-radius: 8px; font-size: 1.5rem; font-weight: 600; cursor: pointer;">View Details →</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        </div>
+    </main>
+
+<!-- MODALS START HERE -->
+
+    <!-- MODAL 1: Computer Vision Safety System -->
+    <div id="modal-cv-safety" class="modal-overlay" onclick="closeModal('modal-cv-safety')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-close" onclick="closeModal('modal-cv-safety')"></div>
+            
+            <div class="modal-header">
+                <span class="modal-badge production">🟢 PRODUCTION</span>
+                <h2 class="modal-title">Computer Vision Safety System</h2>
+                <p class="modal-subtitle">Totalogix SMC Pvt Ltd | Jun 2025 – Aug 2025</p>
+            </div>
+
+            <div class="modal-body">
+                <div class="modal-image cv-graphic">
+                    <div class="modal-placeholder-graphic">
+                        <span class="graphic-icon">🎯</span>
+                        <span class="graphic-text">Computer Vision</span>
+                    </div>
+                </div>
+
+                <p class="modal-description">
+                    Fine-tuned YOLOv8 for real-time human detection around industrial machinery, implementing ROI masking and live inference pipelines. Integrated detection system via Modbus protocol to industrial PLCs for automated machine shutdown and safety alarms. Deployed on custom Ubuntu workstation (i7 14th Gen, RTX 3060 12GB), currently running in factory production environment.
+                </p>
+
+                <h3 class="modal-section-title">Key Features & Implementation</h3>
+                <ul class="modal-list">
+                    <li>Custom YOLOv8 fine-tuning for industrial safety scenarios with 95%+ detection accuracy</li>
+                    <li>Real-time inference pipeline processing 30+ FPS on factory floor</li>
+                    <li>ROI masking to focus detection on critical safety zones around machinery</li>
+                    <li>Modbus TCP/IP integration with Allen-Bradley PLCs for automated shutdown</li>
+                    <li>Multi-zone alarm triggering system with configurable safety thresholds</li>
+                    <li>Production deployment on Ubuntu 22.04 with custom hardware configuration</li>
+                </ul>
+
+                <h3 class="modal-section-title">Tech Stack</h3>
+                <div class="modal-tech-stack">
+                    <span class="modal-tech-tag">Python 3.10</span>
+                    <span class="modal-tech-tag">PyTorch</span>
+                    <span class="modal-tech-tag">YOLOv8</span>
+                    <span class="modal-tech-tag">OpenCV</span>
+                    <span class="modal-tech-tag">Modbus TCP</span>
+                    <span class="modal-tech-tag">Ubuntu 22.04</span>
+                    <span class="modal-tech-tag">CUDA 11.8</span>
+                    <span class="modal-tech-tag">RTX 3060</span>
+                </div>
+
+                <h3 class="modal-section-title">Impact & Results</h3>
+                <ul class="modal-list">
+                    <li>Successfully deployed in active factory environment serving 200+ workers</li>
+                    <li>Zero false negatives in safety-critical scenarios during 3-month testing period</li>
+                    <li>Reduced incident response time from 15 seconds (manual) to <1 second (automated)</li>
+                    <li>System uptime: 99.8% with automated failover mechanisms</li>
+                </ul>
+            </div>
+
+            <div class="modal-footer">
+                <a href="PLACEHOLDER_CV_GITHUB_LINK" class="modal-link" target="_blank">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    GitHub Repository
+                </a>
+                <a href="PLACEHOLDER_CV_DEMO_LINK" class="modal-link" target="_blank">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                    Case Study
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 2: LIDAR 3D Object Detection -->
+    <div id="modal-lidar" class="modal-overlay" onclick="closeModal('modal-lidar')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-close" onclick="closeModal('modal-lidar')"></div>
+            
+            <div class="modal-header">
+                <span class="modal-badge research">🔵 RESEARCH</span>
+                <h2 class="modal-title">Real-time 3D Object Detection using LIDAR</h2>
+                <p class="modal-subtitle">UM-SJTU Joint Institute | Sep 2017 – Sep 2022</p>
+            </div>
+
+            <div class="modal-body">
+                <div class="modal-image lidar-graphic">
+                    <div class="modal-placeholder-graphic">
+                        <span class="graphic-icon">🧠</span>
+                        <span class="graphic-text">Deep Learning Research</span>
+                    </div>
+                </div>
+
+                <p class="modal-description">
+                    Master's thesis research developing CNN-based deep learning models for 3D point cloud processing and classification. Applied machine learning algorithms to process LIDAR sensor data for autonomous vehicle applications. Utilized TensorFlow and PyTorch frameworks for model development, achieving significant computation optimization through CUDA parallel computing techniques.
+                </p>
+
+                <h3 class="modal-section-title">Research Contributions</h3>
+                <ul class="modal-list">
+                    <li>Developed novel CNN architecture specifically tailored for 3D point cloud data processing</li>
+                    <li>Achieved 85%+ mAP on KITTI dataset for 3D object detection tasks</li>
+                    <li>Implemented efficient voxelization techniques for real-time processing</li>
+                    <li>Optimized inference speed using CUDA parallel computing (30ms per frame)</li>
+                    <li>Published findings in master's thesis with potential for journal publication</li>
+                </ul>
+
+                <h3 class="modal-section-title">Technical Approach</h3>
+                <ul class="modal-list">
+                    <li>3D convolution operations on voxelized point cloud representations</li>
+                    <li>Multi-scale feature extraction for objects at varying distances</li>
+                    <li>Anchor-based 3D bounding box prediction with orientation estimation</li>
+                    <li>Data augmentation techniques specific to point cloud data</li>
+                    <li>Transfer learning from 2D detection models to 3D space</li>
+                </ul>
+
+                <h3 class="modal-section-title">Tech Stack</h3>
+                <div class="modal-tech-stack">
+                    <span class="modal-tech-tag">Python</span>
+                    <span class="modal-tech-tag">TensorFlow 2.x</span>
+                    <span class="modal-tech-tag">PyTorch</span>
+                    <span class="modal-tech-tag">CUDA 10.2</span>
+                    <span class="modal-tech-tag">OpenCV</span>
+                    <span class="modal-tech-tag">Point Cloud Library</span>
+                    <span class="modal-tech-tag">NumPy</span>
+                    <span class="modal-tech-tag">KITTI Dataset</span>
+                </div>
+
+                <h3 class="modal-section-title">Results & Impact</h3>
+                <ul class="modal-list">
+                    <li>Demonstrated real-time capability for autonomous vehicle perception systems</li>
+                    <li>Achieved competitive performance compared to state-of-the-art methods</li>
+                    <li>Contributed to advancement of 3D deep learning research in the lab</li>
+                    <li>Gained expertise in cutting-edge computer vision and deep learning techniques</li>
+                </ul>
+            </div>
+
+            <div class="modal-footer">
+                <a href="PLACEHOLDER_LIDAR_GITHUB_LINK" class="modal-link" target="_blank">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    GitHub Repository
+                </a>
+                <a href="PLACEHOLDER_LIDAR_THESIS_LINK" class="modal-link" target="_blank">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                    </svg>
+                    Read Thesis
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 3: Autonomous Vehicle Perception -->
+    <div id="modal-av" class="modal-overlay" onclick="closeModal('modal-av')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-close" onclick="closeModal('modal-av')"></div>
+            
+            <div class="modal-header">
+                <span class="modal-badge internship">🟡 INTERNSHIP</span>
+                <h2 class="modal-title">Autonomous Vehicle Perception System</h2>
+                <p class="modal-subtitle">SUPERG.AI | Feb 2019 – May 2019</p>
+            </div>
+
+            <div class="modal-body">
+                <div class="modal-image av-graphic">
+                    <div class="modal-placeholder-graphic">
+                        <span class="graphic-icon">🤖</span>
+                        <span class="graphic-text">Autonomous Vehicles</span>
+                    </div>
+                </div>
+
+                <p class="modal-description">
+                    Contributed to autonomous vehicle development project at a Shanghai-based AI startup. Worked on 3D object detection and tracking algorithms using LIDAR point cloud data. Implemented bounding box formation algorithms for detected objects in real-time sensor streams. Gained practical understanding of industry-standard methodologies and safety requirements for autonomous vehicle development.
+                </p>
+
+                <h3 class="modal-section-title">Key Responsibilities</h3>
+                <ul class="modal-list">
+                    <li>Developed and optimized 3D object detection algorithms for LIDAR point clouds</li>
+                    <li>Implemented multi-object tracking system with Kalman filtering</li>
+                    <li>Created bounding box formation algorithms for detected vehicles and pedestrians</li>
+                    <li>Worked with real-time sensor data streams in production vehicle testing</li>
+                    <li>Collaborated with senior engineers on perception pipeline optimization</li>
+                    <li>Participated in code reviews and agile development processes</li>
+                </ul>
+
+                <h3 class="modal-section-title">Technical Skills Gained</h3>
+                <ul class="modal-list">
+                    <li>Industry-standard autonomous vehicle development workflows</li>
+                    <li>Real-time systems programming with strict latency requirements</li>
+                    <li>Safety-critical software development best practices</li>
+                    <li>Sensor fusion concepts and multi-modal perception systems</li>
+                    <li>Performance optimization for embedded automotive systems</li>
+                </ul>
+
+                <h3 class="modal-section-title">Tech Stack</h3>
+                <div class="modal-tech-stack">
+                    <span class="modal-tech-tag">Python</span>
+                    <span class="modal-tech-tag">C++</span>
+                    <span class="modal-tech-tag">LIDAR Processing</span>
+                    <span class="modal-tech-tag">Point Cloud Library</span>
+                    <span class="modal-tech-tag">ROS</span>
+                    <span class="modal-tech-tag">OpenCV</span>
+                    <span class="modal-tech-tag">Kalman Filtering</span>
+                </div>
+
+                <h3 class="modal-section-title">Learning Outcomes</h3>
+                <ul class="modal-list">
+                    <li>Exposure to cutting-edge autonomous vehicle technology and industry practices</li>
+                    <li>Understanding of safety requirements and validation processes for self-driving cars</li>
+                    <li>Experience working in fast-paced AI startup environment</li>
+                    <li>Collaboration with international team of engineers and researchers</li>
+                </ul>
+            </div>
+
+            <div class="modal-footer">
+                <a href="#" class="modal-link disabled">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="15" y1="9" x2="9" y2="15"></line>
+                        <line x1="9" y1="9" x2="15" y2="15"></line>
+                    </svg>
+                    Proprietary Work
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODALS END HERE -->
+
+    <!-- FOOTER — exact match to main page -->
+    <footer id="footer">
+        <button id="backtotopbutton" onclick="scrolltoTopfunction()">
+            <article aria-label="Back to top">&#8592;BACK TO TOP</article>
+        </button>
+        <div class="footer-background">
+            <div class="footer-blob"></div>
+        </div>
+        <div class="footer-foreground">
+            <div class="footercontainer">
+                <div class="two-words">
+                    <article tabindex="0" aria-label="Learning, Living, and Leveling Up, my quote">
+                        "Learning, Living, and Leveling Up."
+                    </article>
+                </div>
+
+                <div class="social-media-container">
+                    <div class="getintouch-heading">
+                        <article>GetinTouch();</article>
+                    </div>
+                    <div class="logos">
+                        <a href="https://www.linkedin.com/in/ahmadbilal1203" target="_blank" aria-label="My LinkedIn">
+                            <svg class="SocialHandle" viewBox="0 0 448 512">
+                                <path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/>
+                            </svg>
+                        </a>
+                        <a href="https://github.com/bilal1203" target="_blank" aria-label="My GitHub">
+                            <svg viewBox="0 0 496 512" class="SocialHandle">
+                                <path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/>
+                            </svg>
+                        </a>
+                        <a href="mailto:ahmad.bilal.chohan@gmail.com" target="_blank" aria-label="My Gmail">
+                            <svg id="GmailLogo" viewBox="0 0 512 512">
+                                <path d="M64 112c-8.8 0-16 7.2-16 16v22.1L220.5 291.7c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16H64zM48 212.2V384c0 8.8 7.2 16 16 16H448c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0L48 212.2zM0 128C0 92.7 28.7 64 64 64H448c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-avatar-container">
+                    <img src="../../../assets/images/footer-avatar-ahmad.png" alt="animation-head" class="footer-avatar-img" id="footer-wala-avatar" />
+                    <div class="footer-avatar-face">
+                        <div class="footer-avatar-eye footer-left-eye">
+                            <div class="footer-pupil"></div>
+                        </div>
+                        <div class="footer-avatar-eye footer-right-eye">
+                            <div class="footer-pupil"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <article>Designed and Built by Ahmad Bilal (2024)</article>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../assets/js/project-modal.js"></script>
+    <script src="../../../assets/js/category-shared.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>AOS.init();</script>
+
+</body>
+</html>
